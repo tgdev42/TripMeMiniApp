@@ -1,0 +1,30 @@
+{
+  "name": "tripme-mini-app-frontend",
+  "version": "1.0.0",
+  "description": "TripMe Mini App Frontend",
+  "main": "local-server.js",
+  "author": "tgdev42",
+  "config": {
+    "IP": "127.0.0.1",
+    "PORT": "8080",
+    "DIST_FOLDER": "../docs"
+  },
+  "scripts": {
+    "eslint": "eslint src/*.js",
+    "local-server": "IP=$npm_package_config_IP PORT=$npm_package_config_PORT node local-server.js",
+    "start": "npm run local-server",
+    "build": "./build.sh",
+    "dist-start": "npm run build && DIST_FOLDER=$npm_package_config_DIST_FOLDER npm run local-server"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "clean-css-cli": "^4.2.1",
+    "eslint": "^8.51.0",
+    "eslint-config-google": "^0.14.0",
+    "express": "^4.18.2",
+    "html-minifier": "^3.5.21",
+    "uglify-js": "^3.5.2"
+  }
+}
