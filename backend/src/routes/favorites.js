@@ -1,25 +1,25 @@
 const { logger } = require('../services/logger');
 const errorHandler = require('../services/error-handler');
-const { validateData, parseDataWebApp } = require('../utils/tg-data');
-const { timestampDatetime } = require('../utils/date');
 const { getFavoritesValidator, setFavoritesValidator } = require('../validators/favorites');
+const { validateData, parseDataWebApp } = require('../utils/tg-data');
+const { sendResponse } = require('../utils/send-response');
+const { timestampDatetime } = require('../utils/date');
 
 const get = async (req, res) => {
 	try {
 		const {
 			initData,
 		} = await getFavoritesValidator.validateAsync(req.query);
-		logger.debug('initData:', initData);
+		// logger.debug('initData:', initData);
 
 		if ( ! validateData(initData)) {
-			const response = {};
-			response.code = 42;
-			response.error = 42;
-			res.json(response);
+			return sendResponse(res, {
+				error: 42,
+			});
 		}
 
 		const data = parseDataWebApp(initData);
-		logger.debug('data', data);
+		// logger.debug('data', data);
 
 		const userId = data.user.id;
 
@@ -29,15 +29,14 @@ const get = async (req, res) => {
 						LEFT JOIN countries ON countries.id = places.country_id
 						LEFT JOIN seasons ON seasons.place_id = places.id AND seasons.month = favorites.month
 						WHERE user_id = ${userId}`;
-		const [ rows ] = await db.query(sql);
+		const [ items ] = await db.query(sql);
 		// db.release();
 
-		const response = {};
-		response.code = 0;
-		response.items = rows;
-		res.json(response);
+		sendResponse(res, {
+			items,
+		});
 	}
-	catch (e) {
+	catch (err) {
 		errorHandler.handleError(err, res);
 	}
 };
@@ -49,17 +48,16 @@ const set = async (req, res) => {
 			placeId,
 			month,
 		} = await setFavoritesValidator.validateAsync(req.query);
-		logger.debug('initData:', initData, 'placeId:', placeId, 'month:', month);
+		// logger.debug('initData:', initData, 'placeId:', placeId, 'month:', month);
 
-		if ( ! validateData(req.query.initData)) {
-			const response = {};
-			response.code = 42;
-			response.error = 42;
-			res.json(response);
+		if ( ! validateData(initData)) {
+			return sendResponse(res, {
+				error: 42,
+			});
 		}
 
 		const data = parseDataWebApp(req.query.initData);
-		logger.debug('data', data);
+		// logger.debug('data', data);
 
 		const userId = data.user.id;
 		const sql = `SELECT id FROM favorites WHERE
@@ -78,18 +76,19 @@ const set = async (req, res) => {
 			await db.query(sql);
 			// db.release();
 
-			const response = {};
-			res.json({ code: 0 });
+			return sendResponse(res, {
+				code: 1,
+			});
 		}
 		else {
 			// db.release();
-			const response = {};
-			response.code = 4;
-			response.error = 4;
-			res.json(response);
+
+			sendResponse(res, {
+				error: 16,
+			});
 		}
 	}
-	catch (e) {
+	catch (err) {
 		errorHandler.handleError(err, res);
 	}
 };
@@ -101,17 +100,16 @@ const remove = async (req, res) => {
 			placeId,
 			month,
 		} = await setFavoritesValidator.validateAsync(req.query);
-		logger.debug('initData:', initData, 'placeId:', placeId, 'month:', month);
+		// logger.debug('initData:', initData, 'placeId:', placeId, 'month:', month);
 
-		if ( ! validateData(req.query.initData)) {
-			const response = {};
-			response.code = 42;
-			response.error = 42;
-			res.json(response);
+		if ( ! validateData(initData)) {
+			return sendResponse(res, {
+				error: 42,
+			});
 		}
 
 		const data = parseDataWebApp(req.query.initData);
-		logger.debug('data', data);
+		// logger.debug('data', data);
 
 		const userId = data.user.id;
 		const sql = `DELETE FROM favorites WHERE
@@ -121,10 +119,11 @@ const remove = async (req, res) => {
 		await db.query(sql);
 		// db.release();
 
-		const response = {};
-		res.json({ code: 0 });
+		sendResponse(res, {
+			code: 1,
+		});
 	}
-	catch (e) {
+	catch (err) {
 		errorHandler.handleError(err, res);
 	}
 };
