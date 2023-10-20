@@ -2,7 +2,6 @@ Swal = Swal.mixin({
 	buttonsStyling: false,
 	confirmButtonText: 'Да',
 	cancelButtonText: 'Нет',
-	focusConfirm: false,
 });
 
 const getInitData = () => {
@@ -40,7 +39,7 @@ const showAlert = (message, callback = null) => {
 			customClass: {
 				confirmButton: 'btn btn-success btn-lg',
 			},
-			onOpen: (toast) => {
+			didOpen: (toast) => {
 				toast.querySelector('.swal2-confirm').blur();
 			},
 		}).then(() => {
@@ -65,7 +64,7 @@ const showConfirm = (message, callback) => {
 			},
 			showCloseButton: true,
 			showLoaderOnConfirm: true,
-			onOpen: (toast) => {
+			didOpen: (toast) => {
 				toast.querySelector('.swal2-confirm').blur();
 				toast.querySelector('.swal2-close').blur();
 			},

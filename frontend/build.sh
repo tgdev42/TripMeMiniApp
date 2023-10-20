@@ -40,4 +40,4 @@ src/lib/icomoon.css \
 src/lib/animate.min.css \
 src/lib/lightgallery.min.css \
 src/custom.css \
--o $DIST_FOLDER/custom.min.css --skip-rebase
+-o $DIST_FOLDER/custom.min.css

@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 			grow: 'fullscreen',
 			backdrop: '#fff',
-			onOpen: (toast) => {
+			didOpen: (toast) => {
 				toast.querySelector('.swal2-confirm').blur();
 			},
 		});

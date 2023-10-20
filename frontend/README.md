@@ -49,9 +49,11 @@ Take the smaller library, but updated. For example, use [Day.js](https://github.
 ## Frontend uses JavaScript libraries
 | Name | GitHub | jsDelivr | Version |
 |------|--------|----------|---------|
-| Bootswatch | [GitHub](https://github.com/thomaspark/bootswatch) | [jsDelivr](https://www.jsdelivr.com/package/npm/bootswatch?path=dist%2Fflatly) | 4.5.0 |
-| SweetAlert2 | [GitHub](https://github.com/sweetalert2/sweetalert2) | [jsDelivr](https://www.jsdelivr.com/package/npm/sweetalert2?path=dist) | 9.17.0
-| Animate.css | [GitHub](https://github.com/daneden/animate.css) | [jsDelivr](https://www.jsdelivr.com/package/npm/animate.css) | 4.1.0
-| lightgallery.js | [GitHub](https://github.com/sachinchoolur/lightgallery.js) | [jsDelivr](https://www.jsdelivr.com/package/npm/lightgallery.js?path=dist) | 1.2.0
+| Bootswatch | [GitHub](https://github.com/thomaspark/bootswatch) | [jsDelivr](https://www.jsdelivr.com/package/npm/bootswatch?path=dist%2Fflatly&tab=files) | 4.6.2 |
+| SweetAlert2 | [GitHub](https://github.com/sweetalert2/sweetalert2) | [jsDelivr](https://www.jsdelivr.com/package/npm/sweetalert2?path=dist&tab=files) | 11.7.32
+| Animate.css | [GitHub](https://github.com/daneden/animate.css) | [jsDelivr](https://www.jsdelivr.com/package/npm/animate.css?tab=files) | 4.1.1
+| lightgallery.js | [GitHub](https://github.com/sachinchoolur/lightgallery.js) | [jsDelivr](https://www.jsdelivr.com/package/npm/lightgallery.js?path=dist&tab=files) | 1.4.0
+| lg-zoom.js | [GitHub](https://github.com/sachinchoolur/lg-zoom.js) | [jsDelivr](https://www.jsdelivr.com/package/npm/lg-zoom.js?path=dist&tab=files) | 1.3.0
+| lg-autoplay.js | [GitHub](https://github.com/sachinchoolur/lg-autoplay.js) | [jsDelivr](https://www.jsdelivr.com/package/npm/lg-autoplay.js?path=dist&tab=files) | 1.2.0
 
 ------------

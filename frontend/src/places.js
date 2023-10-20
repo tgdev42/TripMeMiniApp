@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						customClass: {
 							confirmButton: 'btn btn-success btn-lg',
 						},
-						onOpen: (toast) => {
+						didOpen: (toast) => {
 							toast.querySelector('.swal2-confirm').blur();
 						},
 					}).then(() => {
@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
 											showLoaderOnConfirm: true,
 											confirmButtonText: 'Я передумал, разрешаю!',
 											cancelButtonText: 'Да',
-											onOpen: (toast) => {
+											didOpen: (toast) => {
 												toast.querySelector('.swal2-confirm').blur();
 												toast.querySelector('.swal2-close').blur();
 											},
@@ -623,7 +623,7 @@ const showQuote = () => {
 			hideClass: {
 				popup: 'animate__animated animate__fadeOutDown',
 			},
-			onOpen: (toast) => {
+			didOpen: (toast) => {
 				toast.addEventListener('click', showQuote);
 			},
 		});
