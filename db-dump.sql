@@ -468,7 +468,11 @@ CREATE TABLE `users` (
   `user_id` bigint(20) unsigned NOT NULL,
   `platform` varchar(10) DEFAULT NULL,
   `language` varchar(2) DEFAULT NULL,
-  `allows_write_to_pm` tinyint(1) unsigned DEFAULT NULL,
+  `allows_write_to_pm` tinyint(1) unsigned zerofill DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `is_premium` tinyint(1) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

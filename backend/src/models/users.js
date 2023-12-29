@@ -23,7 +23,7 @@ const saveUser = async (userId, data) => {
 		let username = null;
 		if (typeof data.user.username !== 'undefined') username = data.user.username;
 
-		let isPremium = null;
+		let isPremium = 0;
 		if (typeof data.user.is_premium !== 'undefined') isPremium = Number(data.user.is_premium);
 
 		const sql = `INSERT INTO users SET
